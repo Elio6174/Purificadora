@@ -12,6 +12,12 @@
         <button class="btn btn-primary" style="margin-bottom: 15px;">
             + Registrar Nuevo Producto
         </button>
+
+        <form action="{{route('cerrar')}}" method="POST" >
+                @csrf
+                <button class="btn btn-danger">Cerrar sesion</button>
+            
+            </form>
     </a>
 
     <table border="1">

@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illiminate\Support\Facades\Auth;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -11,7 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        //Indicar el uso del alies del Middleware
+        $middleware -> alias([
+            'auth' => App\Http\Middleware\VerificaUsuario::class, 
+
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
