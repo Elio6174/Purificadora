@@ -62,15 +62,12 @@ class AuthController extends Controller
 
         //Intentar el inico de sesion 
         if(Auth::attempt($data)){
-
             //Iniciar sesion y redireccionar al usuario con sesion activa
             $request -> session() -> regenerate();
             return redirect()->route('Productos.index');
-        
-            }
+        }
         return back()->withErrors([
-            'email' => 'Datos incorrectos',
-            
+            'email' => 'Datos incorrectos',   
         ]);
 
 

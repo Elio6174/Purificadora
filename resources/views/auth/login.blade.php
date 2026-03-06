@@ -11,7 +11,7 @@
 
     <H1>INICIO DE SESION</H1>
 
-    <form action="{{ route('acceso.store') }}" method= " POST ">
+    <form action="{{ route('acceso.store') }}" method= "POST">
          @csrf
 
          <input type="email" name="email" placeholder="Correo" class="form-control" required>
