@@ -27,10 +27,19 @@
         <button type="submit" class="btn btn-success"> Guardar </button>
     </form>
 
-    <div class="form-check">
+     @if(auth()->user()->is_admin)
+     
+        <div class="form-check">
             <input type="checkbox" name="is_admin" value="1" >
             <label for="is_admin"> Es administrador</label>
-        </div>
+        </div>                     
+     
+
+     @endif
+
+
+
+    
         <br>
         
         
