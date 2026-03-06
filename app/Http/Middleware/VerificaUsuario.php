@@ -19,8 +19,8 @@ class VerificaUsuario
     {
         //Funcionamiento del MIDDLEWARE (ESCRIBIR CODIGO AQUI)
         //VErificar si la sesion del usuario esta activa 
-        if(Auth::check()){
-            return redirect()-> route('registro')
+        if(!Auth::check()){
+            return redirect()-> route('acceso')
             -> with('error','Se debe iniciar sesion o registrarse');
         }
 

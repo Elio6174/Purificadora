@@ -12,9 +12,9 @@ Route::get('/', function () {
 
 // Usar las rutas con los nombres de los metodos del contralodor (Protegido por el inicio de sesion)
 Route::middleware(['auth'])->group(function () {
-    //Route::resource('Productos', ProductosController::class);
+    Route::resource('Productos', ProductosController::class);
 });
-Route::resource('Productos', ProductosController::class);
+//Route::resource('Productos', ProductosController::class);
 
 Route:: get('/Productos/{Productos}/Edit',[
     ProductosController::class,'Edit'
