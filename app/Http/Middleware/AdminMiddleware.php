@@ -5,8 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class AdminMiddleawre
 {
     /**
      * Handle an incoming request.
@@ -15,6 +16,22 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+
+        //Verificar si la sesion del usuario esta activa 
+        if(!Auth::check()){
+            return redirect()-> route('registro')
+            ->with('error','Se debe registrar e iniciar sesion');
+
+
+        }
+
+        //Verificar si el usuario es administrador
+        if(!Auth::user()-> is_admin){
+             return redirect()-> route('Productos.index')
+            ->with('error','Acceso solo administradores papi');
+
+        }
+
         return $next($request);
     }
 }
