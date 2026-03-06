@@ -59,3 +59,10 @@ Route::post('/cerrar',[
     AuthController::class,'logout'
 ])->name('cerrar');
 
+Route::middleware(['auth','admin'])-> group (function () {
+    //Ruta para el panel del administrador
+    Route::get('/admin-dashboard', [
+        AuthController::class, 'adminDashboard'
+    ])->name('admin-dashboard');
+
+});

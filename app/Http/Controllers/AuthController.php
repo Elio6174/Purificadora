@@ -86,6 +86,11 @@ class AuthController extends Controller
 
     }
 
+    //Vista del panel de administrador 
+    public function adminDashboard(){
+        return view('admin.dashboard');
+    }
+
 
 
 
