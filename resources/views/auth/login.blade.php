@@ -9,6 +9,8 @@
     @extends('layouts.app')
     @section('content')
 
+    @include('partials.alerts')
+
     <H1>INICIO DE SESION</H1>
 
     <form action="{{ route('acceso.store') }}" method= "POST">

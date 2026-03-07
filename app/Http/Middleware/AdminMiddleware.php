@@ -28,7 +28,7 @@ class AdminMiddleware
 
         //Verificar si el usuario es administrador
         if(!Auth::user()-> is_admin){
-             return redirect()-> route('Productos.index')
+            return redirect()-> route('Productos.index')
             ->with('error','Acceso solo administradores papi');
 
         }

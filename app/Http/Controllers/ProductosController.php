@@ -39,7 +39,8 @@ class ProductosController extends Controller
         'Precio' => $request-> Precio,
     
         ]);
-            return redirect()->route('Productos.create');
+        return redirect()->route('Productos.index')
+        ->with('success', 'Producto registrado con éxito');
     }
 
     /**

@@ -1,12 +1,12 @@
 <?php
-use Illiminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\AuthController;
 
 
 Route::get('/', function () {
-    return view('Productos.index');
+    return redirect()->route('acceso');
 });
 
 
