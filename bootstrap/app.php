@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         //Indicar el uso del alies del Middleware
         $middleware -> alias([
             'auth' => App\Http\Middleware\VerificaUsuario::class, 
+            'admin' => App\Http\Middleware\AdminMiddleware::class,
             
 
         ]);
