@@ -27,7 +27,7 @@
         <button type="submit" class="btn btn-success"> Guardar </button>
     </form>
 
-     @if(auth()->user()->is_admin)
+     @if(auth()->check() && auth()->user()->is_admin)
      
         <div class="form-check">
             <input type="checkbox" name="is_admin" value="1" >
