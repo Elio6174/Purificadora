@@ -21,7 +21,7 @@ Route:: get('/Productos/{Productos}/Edit',[
     ProductosController::class,'Edit'
 ]) ->name('Productos.edit');
 
-Route:: get('/Productos/{Productos}/Pago',[
+Route:: get('/Productos/Pago/{Productos}',[
     MercadoPagoController::class,'Pago'
 ]) ->name('Productos.pago');
 

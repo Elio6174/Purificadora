@@ -9,8 +9,10 @@ use MercadoPago\Client\Preference\PreferenceClient;
 
 class MercadoPagoController extends Controller
 {
-    public function pago($producto)
+    public function pago($id)
     {
+        $producto = Productos::find($id);
+
         $accessToken = env('MERCADO_PAGO_ACCESS_TOKEN');
         MercadoPagoConfig::setAccessToken($accessToken);
 
@@ -18,14 +20,15 @@ class MercadoPagoController extends Controller
         $preference = $client->create([
         "items"=> array(
             array(
-            "title" => "Mi producto",
+            "title" => $producto->Nombre." - ". $producto->Capacidad,
             "quantity" => 1,
-            "unit_price" => 2000
+            "unit_price" => (float)$producto->Precio,
+            "currency_id" => "MXN"
             )
         )
         ]);
 
         // Retornamos el ID para usarlo en el HTML
-        return view('Productos.Pago', ['preferenceId' => $preference->id]);
+        return view('Productos.Pago', ['preferenceId' => $preference->id, 'producto' => $producto]);
     }
 }
