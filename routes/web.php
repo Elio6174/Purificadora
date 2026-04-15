@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MercadoPagoController;
 
 
 Route::get('/', function () {
@@ -20,6 +21,9 @@ Route:: get('/Productos/{Productos}/Edit',[
     ProductosController::class,'Edit'
 ]) ->name('Productos.edit');
 
+Route:: get('/Productos/{Productos}/Pago',[
+    MercadoPagoController::class,'Pago'
+]) ->name('Productos.pago');
 
 //Ruta para actualizar el registro(PUT) 
 

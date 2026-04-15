@@ -76,7 +76,7 @@
                                                         </button>
                                                     </form>
                                                 @else
-                                                    <a href="{{ route('Productos.edit', $Producto) }}" class="btn btn-primary btn-sm">
+                                                    <a href="{{ route('Productos.pago', $Producto) }}" class="btn btn-primary btn-sm">
                                                         Comprar
                                                     </a>
                                                 @endif
