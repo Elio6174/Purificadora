@@ -61,19 +61,25 @@
                                         <td>${{ $Producto->Precio }}</td>
                                         <td>
                                             <div class="d-flex justify-content-center gap-2 flex-wrap">
-                                                <a href="{{ route('Productos.edit', $Producto) }}" class="btn btn-warning btn-sm">
-                                                    Editar
-                                                </a>
+                                                @if(auth()->user()->is_admin)
+                                                    <a href="{{ route('Productos.edit', $Producto) }}" class="btn btn-warning btn-sm">
+                                                        Editar
+                                                    </a>
 
-                                                <form action="{{ route('Productos.destroy', $Producto->id) }}" method="POST" class="m-0">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button 
-                                                        type="submit" 
-                                                        class="btn btn-danger btn-sm">
-                                                        Eliminar
-                                                    </button>
-                                                </form>
+                                                    <form action="{{ route('Productos.destroy', $Producto->id) }}" method="POST" class="m-0">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button 
+                                                            type="submit" 
+                                                            class="btn btn-danger btn-sm">
+                                                            Eliminar
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <a href="{{ route('Productos.edit', $Producto) }}" class="btn btn-primary btn-sm">
+                                                        Comprar
+                                                    </a>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
