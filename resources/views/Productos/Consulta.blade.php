@@ -23,11 +23,12 @@
                     </div>
 
                     <div class="d-flex flex-wrap gap-2 mb-4">
-                        <a href="{{ route('Productos.create') }}" class="btn btn-primary">
-                            + Registrar Nuevo Producto
-                        </a>
-
+                        
                         @if(auth()->user()->is_admin)
+                            <a href="{{ route('Productos.create') }}" class="btn btn-primary">
+                                + Registrar Nuevo Producto
+                            </a>
+                            
                             <a href="{{ route('admin-dashboard') }}" class="btn btn-secondary">
                                 Admin
                             </a>
